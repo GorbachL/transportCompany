@@ -1,6 +1,6 @@
 package entity;
 
-public class Cities {
+public class City {
 
     private int id;
     private String name;
@@ -9,7 +9,7 @@ public class Cities {
     private boolean airport;
     private boolean seaport;
 
-    public Cities(int id, String name, double lat, double lon, boolean airport, boolean seaport) {
+    public City(int id, String name, double lat, double lon, boolean airport, boolean seaport) {
         this.id = id;
         this.name = name;
         this.lat = lat;
@@ -18,17 +18,7 @@ public class Cities {
         this.seaport = seaport;
     }
 
-    public Cities() {
-    }
-
-
-    public Cities(int id) {
-        this.id = id;
-    }
-
-    public Cities(double lat, double lon) {
-        this.lat = lat;
-        this.lon = lon;
+    public City() {
     }
 
     public int getId() {
@@ -81,7 +71,7 @@ public class Cities {
 
     @Override
     public String toString() {
-        return "Cities{" +
+        return "City{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lat=" + lat +

@@ -2,17 +2,14 @@ package controllers;
 
 import dao.CitiesDao;
 import dao.CitiesDaoImpl;
-import entity.Cities;
-
-import java.util.List;
+import entity.City;
 
 public class CitiesController {
 
     CitiesDao citiesDao = new CitiesDaoImpl();
 
-    public List<Cities> getCitiesList(){
-        List<Cities> citiesList = citiesDao.getCities();
-        return citiesList;
+    public City getCityByName(String cityName) {
+        return citiesDao.getCityByName(cityName);
     }
 
 }

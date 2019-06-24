@@ -1,10 +1,8 @@
 package dao;
 
-import entity.Cities;
-
-import java.util.List;
+import entity.City;
 
 public interface CitiesDao {
 
-    List<Cities> getCities();
+    City getCityByName(String name);
 }
