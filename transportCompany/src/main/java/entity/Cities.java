@@ -21,12 +21,6 @@ public class Cities {
     public Cities() {
     }
 
-    public Cities(int id, String name, double lat, double lon) {
-        this.id = id;
-        this.name = name;
-        this.lat = lat;
-        this.lon = lon;
-    }
 
     public Cities(int id) {
         this.id = id;
