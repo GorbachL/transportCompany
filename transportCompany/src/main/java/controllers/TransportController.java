@@ -13,7 +13,8 @@ public class TransportController {
         double distance = distance(from.getLat(), from.getLon(), to.getLat(), to.getLon());
         System.out.println("Distance between cities: " + distance);
 
-        //TODO - дальше самое сложное - надо проверить введенное количество человек и груза - подходит ли оно под транспорт который идет между этими городами
+        //TODO - дальше самое сложное - надо проверить введенное количество человек и груза - 
+        //подходит ли оно под транспорт который идет между этими городами
 
     }
 
