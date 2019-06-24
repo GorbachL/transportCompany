@@ -18,16 +18,3 @@ public class CitiesController {
 }
 
 
-/*
-   CategoriesDao categoriesDao = new CategoriesDaoImpl();
-    TransportDao transportDao = new TransportDaoImpl();
-
-    public List<Category> getCategoriesWithTransport(){
-        List<Category> categories = categoriesDao.get();
-        for (Category category : categories){
-            List<Transport> categoryTransports = transportDao.getTransportByCategory(category);
-            category.setTransports(categoryTransports);
-        }
-        return categories;
-    }
- */
