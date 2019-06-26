@@ -24,12 +24,12 @@ public class TransportController {
 
         Category category = null;
         if (from.isSeaport() && to.isSeaport()) {
-            category = categoriesDao.findByName("seaport");
+            category = categoriesDao.findByName("marine");
 
         } else if (from.isAirport() && to.isAirport()) {
-            category = categoriesDao.findByName("airport");
+            category = categoriesDao.findByName("air");
         } else {
-            category = categoriesDao.findByName("car");
+            category = categoriesDao.findByName("ground");
         }
 
         List<Transport> transports = transportDao.getTransportByCategory(category);
