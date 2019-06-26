@@ -7,11 +7,11 @@ import entity.City;
 
 public class CitiesController {
 
-    CityDao citiesDao = new CityDaoImpl();
+    CityDao cityDao = new CityDaoImpl();
 
     public City getCityByName(String cityName) {
 
-        return citiesDao.getCityByName(cityName);
+        return cityDao.getCityByName(cityName);
     }
 
 }
