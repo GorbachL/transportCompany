@@ -51,7 +51,7 @@ public class TransportDaoImpl implements TransportDao {
                 Transport transport = new Transport();
                 transport.setId(result.getInt("id"));
                 transport.setName(result.getString("name"));
-                transport.setPrice(result.getInt("price"));
+                transport.setPrice(result.getInt("price_km"));
                 if (includeCategories) {
                     Category category = new Category(
                             result.getInt("category_id"),
