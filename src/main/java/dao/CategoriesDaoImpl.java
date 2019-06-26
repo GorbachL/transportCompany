@@ -41,7 +41,12 @@ public class CategoriesDaoImpl implements CategoriesDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return categories.get(0);
+        //return categories.get(0);
+        if (categories.size() == 0){
+            return new Category();
+        }else {
+            return categories.get(0);
+        }
     }
 
     private List<Category> resultSetToList(ResultSet result){
