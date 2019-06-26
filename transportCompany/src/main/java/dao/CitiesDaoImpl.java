@@ -72,6 +72,5 @@ public class CitiesDaoImpl implements CitiesDao {
 //         }
 //         return cityList.size() == 0 ? new City() : cityList.get(0);
 //     }
-    
-}
+
 
