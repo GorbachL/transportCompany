@@ -51,6 +51,7 @@ public class CategoriesDaoImpl implements CategoriesDao {
                 Category category = new Category();
                 category.setId(result.getInt("id"));
                 category.setName(result.getString("name"));
+                categories.add(category);
             }
         } catch (SQLException e) {
             e.printStackTrace();
