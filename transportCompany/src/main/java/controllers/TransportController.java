@@ -1,13 +1,20 @@
 package controllers;
 
+import dao.CategoriesDao;
+import dao.CategoriesDaoImpl;
 import dao.TransportDao;
 import dao.TransportDaoImpl;
+import entity.Category;
 import entity.City;
+import entity.Transport;
+
+import java.util.List;
 
 
 public class TransportController {
 
-    TransportDao transportDao = new TransportDaoImpl();
+    private TransportDao transportDao = new TransportDaoImpl();
+    private CategoriesDao categoriesDao = new CategoriesDaoImpl();
 
     public void checkMatch(City from, City to, String peopleAmount, String cargoAmount) {
         double distance = distance(from.getLat(), from.getLon(), to.getLat(), to.getLon());
@@ -15,12 +22,26 @@ public class TransportController {
 
         //TODO - дальше самое сложное - надо проверить введенное количество человек и груза - 
         //подходит ли оно под транспорт который идет между этими городами
+        Category category = null;
+        if (from.isSeaport() && to.isSeaport()) {
+            category = categoriesDao.findByName("seaport");
 
+        } else if (from.isAirport() && to.isAirport()) {
+            category = categoriesDao.findByName("airport");
+        } else {
+            category = categoriesDao.findByName("car");
+        }
+
+        List<Transport> transports = transportDao.getTransportByCategory(category);
+        Transport cheapestAndFastest = transports.get(0);
+
+        if (cheapestAndFastest.getCapacityCargo() >= Integer.valueOf(cargoAmount) && cheapestAndFastest.getCapacityPeople() >= Integer.valueOf(peopleAmount)) {
+            System.out.println("Available transport is: " + cheapestAndFastest.getName() + " cost =" + (cheapestAndFastest.getPrice() * distance));
+        }
     }
 
-
-    private static double distance(double lat1, double lat2, double lon1,
-                                  double lon2) {
+    private static double distance(double lat1, double lon1, double lat2,
+                                   double lon2) {
 
         final int R = 6371; // Radius of the earth
 
