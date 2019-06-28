@@ -33,10 +33,10 @@ public class TransportController {
         }
 
         List<Transport> transports = transportDao.getTransportByCategory(category);
-        Transport cheapestAndFastest = transports.get(0);
-
-        if (cheapestAndFastest.getCapacityCargo() >= Integer.valueOf(cargoAmount) && cheapestAndFastest.getCapacityPeople() >= Integer.valueOf(peopleAmount)) {
-            System.out.println("Available transport is: " + cheapestAndFastest.getName() + " cost =" + (cheapestAndFastest.getPrice() * distance));
+        for (Transport transport : transports) {
+            if (transport.getCapacityCargo() >= Integer.valueOf(cargoAmount) && transport.getCapacityPeople() >= Integer.valueOf(peopleAmount)) {
+                System.out.println("Available transport is: " + transport.getName() + " cost =" + (transport.getPrice() * distance));
+            }
         }
     }
 
