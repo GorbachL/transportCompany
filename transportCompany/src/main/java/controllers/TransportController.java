@@ -36,6 +36,7 @@ public class TransportController {
         for (Transport transport : transports) {
             if (transport.getCapacityCargo() >= Integer.valueOf(cargoAmount) && transport.getCapacityPeople() >= Integer.valueOf(peopleAmount)) {
                 System.out.println("Available transport is: " + transport.getName() + " cost =" + (transport.getPrice() * distance));
+                break;
             }
         }
     }
@@ -56,7 +57,7 @@ public class TransportController {
 
         distance = Math.pow(distance, 2);
 
-        return (int) Math.sqrt(distance);
+        return (int) Math.sqrt(distance) / 1000;
     }
 }
 
